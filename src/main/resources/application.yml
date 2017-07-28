@@ -1,0 +1,19 @@
+logging:
+  level:
+    org.springframework.web: WARN
+    com.amazonaws: INFO
+    scouter.pulse.aws: INFO
+
+aws:
+  scouter:
+    host:
+      127.0.0.1
+    port:
+      6180
+  region: ap-northeast-2
+  credential:
+    accesskey: 
+    secretkey: 
+  tag:
+    scouter.monitoring
+  period: 5
