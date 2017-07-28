@@ -25,6 +25,7 @@ import com.amazonaws.services.cloudwatch.model.GetMetricStatisticsRequest;
 import com.amazonaws.services.cloudwatch.model.GetMetricStatisticsResult;
 import com.google.gson.Gson;
 
+import scouter.pulse.aws.monitor.model.AWSProperties;
 import scouter.pulse.aws.monitor.model.CounterModel;
 import scouter.pulse.aws.monitor.model.PulseInstance;
 import scouter.pulse.aws.monitor.util.AWSCredentialUtil;

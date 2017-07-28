@@ -1,4 +1,4 @@
-package scouter.pulse.aws.monitor;
+package scouter.pulse.aws.monitor.model;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -27,6 +27,10 @@ public class AWSProperties {
 	}
 
 	public void setRegion(String region) {
+		if (!StringUtils.isEmpty(System.getProperty("aws.region"))) {
+			region = System.getProperty("aws.region");
+		}
+		
 		this.region = region;
 	}
 
@@ -51,6 +55,10 @@ public class AWSProperties {
 	}
 
 	public void setPeriod(Integer period) {
+		if (!StringUtils.isEmpty(System.getProperty("aws.period"))) {
+			period = Integer.parseInt(System.getProperty("aws.period"));
+		}
+		
 		this.period = period;
 	}
 	
@@ -59,26 +67,26 @@ public class AWSProperties {
 		private String port;
 		
 		public String getHost() {
-			if (!StringUtils.isEmpty(System.getProperty("aws.scouter.host"))) {
-				host = System.getProperty("aws.scouter.host");
-			}
-			
 			return host;
 		}
 		
 		public void setHost(String host) {
+			if (!StringUtils.isEmpty(System.getProperty("aws.scouter.host"))) {
+				host = System.getProperty("aws.scouter.host");
+			}
+			
 			this.host = host;
 		}
 		
 		public String getPort() {
-			if (!StringUtils.isEmpty(System.getProperty("aws.scouter.port"))) {
-				port = System.getProperty("aws.scouter.port");
-			}
-			
 			return port;
 		}
 		
 		public void setPort(String port) {
+			if (!StringUtils.isEmpty(System.getProperty("aws.scouter.port"))) {
+				port = System.getProperty("aws.scouter.port");
+			}
+			
 			this.port = port;
 		}
 	}

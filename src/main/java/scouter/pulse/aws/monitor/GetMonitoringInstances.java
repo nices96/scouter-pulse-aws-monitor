@@ -30,6 +30,7 @@ import com.amazonaws.services.rds.model.ListTagsForResourceRequest;
 import com.amazonaws.services.rds.model.ListTagsForResourceResult;
 import com.google.gson.Gson;
 
+import scouter.pulse.aws.monitor.model.AWSProperties;
 import scouter.pulse.aws.monitor.model.PulseInstance;
 import scouter.pulse.aws.monitor.model.RegisterModel;
 import scouter.pulse.aws.monitor.util.AWSCredentialUtil;
@@ -164,10 +165,9 @@ public class GetMonitoringInstances implements Runnable {
 				
 				if (instance.getPublicIpAddress() != null) {
 					pulse.setAddress(instance.getPublicIpAddress() + " / ");
-				} else {
-					pulse.setAddress(instance.getPrivateIpAddress());
 				}
 				
+				pulse.setAddress(instance.getPrivateIpAddress());
 				
 				pulse.setType(instance.getInstanceType());
 				
