@@ -9,7 +9,7 @@ AWS의 CloudWatch를 이용하여 EC2 / RDS / ELB의 카운터 정보를 수집�
 
 ## 모니터링 대상 인스턴스 등록
 * EC2, RDS, ELB 목록 중 모니터링 대상 항목의 Tag에 Key는 scouter.monitoring, Value는 true(True, TURE 가능)로 설정한다.
-* EC2, RDS는 CPU, Memory 정보를 수집하며, ELB는 Request Counet 정보를 수집하다. EC2의 메모리 정보 수집을 위해서는 http://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/mon-scripts.html를 참고하여 메모리 모니터링이 수행되고 있어야 한다.
+* EC2, RDS는 CPU, Memory 정보를 수집하며, ELB는 Request Count 정보를 수집하다. EC2의 메모리 정보 수집을 위해서는 http://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/mon-scripts.html 를 참고하여 메모리 모니터링이 수행되고 있어야 한다.
 
 ## 실행방법
 * application.yml 파일에 필요한 파라메타를 입력하고 빌드한 경우 별다른 파라메타 없이 java -jar scouter-pulse-aws-monitor.jar 와 같이 실행할 수 있다.
