@@ -20,9 +20,9 @@ public class ScouterPulseApplication implements CommandLineRunner {
 	private AWSProperties properties;
 	
 	public static void main(String[] args) {
-    	SpringApplication app = new SpringApplication(ScouterPulseApplication.class);
-    	app.setBannerMode(Mode.OFF);
-    	app.run(args);
+	    	SpringApplication app = new SpringApplication(ScouterPulseApplication.class);
+	    	app.setBannerMode(Mode.OFF);
+	    	app.run(args);
 	}
 
 	@Override

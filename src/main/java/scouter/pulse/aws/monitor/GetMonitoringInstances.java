@@ -83,7 +83,7 @@ public class GetMonitoringInstances implements Runnable {
 			try {
 				register(model);
 			} catch (Exception e) {
-	        	logger.error("Unhandled exception occurred while regist an agent.", e);
+	        		logger.error("Unhandled exception occurred while regist an agent.", e);
 			}
 		}
 	}
@@ -121,25 +121,25 @@ public class GetMonitoringInstances implements Runnable {
 		try {
 			getEC2Instances();
 		} catch (Exception e) {
-			logger.error("Unhandles exception occurred while get EC2 Instances.", e);
+			logger.error("Unhandld exception occurred while get EC2 Instances.", e);
 		}
 
 		try {
 			getRDSInstances();
 		} catch (Exception e) {
-			logger.error("Unhandles exception occurred while get RDS Instances.", e);
+			logger.error("Unhandled exception occurred while get RDS Instances.", e);
 		}
 		
 		try {
 			getELB();
 		} catch (Exception e) {
-			logger.error("Unhandles exception occurred while get ELB.", e);
+			logger.error("Unhandled exception occurred while get ELB.", e);
 		}
 		
 		try {
 			getELBv2();
 		} catch (Exception e) {
-			logger.error("Unhandles exception occurred while get ELBv2.", e);
+			logger.error("Unhandled exception occurred while get ELBv2.", e);
 		}
 	}
 
@@ -277,12 +277,12 @@ public class GetMonitoringInstances implements Runnable {
         HttpResponse response = client.execute(post);
         
         if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK || response.getStatusLine().getStatusCode() == HttpStatus.SC_CREATED) {
-        	logger.info("Register message sent to [{}] for [{}].", url, model.getObject().getDisplay());
+        		logger.info("Register message sent to [{}] for [{}].", url, model.getObject().getDisplay());
         } else {
-        	logger.warn("Register message sent failed. Verify below information.");
-        	logger.warn("[URL] : " + url);
-        	logger.warn("[Message] : " + param);
-        	logger.warn("[Reason] : " + EntityUtils.toString(response.getEntity(), "UTF-8"));
+	        	logger.warn("Register message sent failed. Verify below information.");
+	        	logger.warn("[URL] : " + url);
+	        	logger.warn("[Message] : " + param);
+	        	logger.warn("[Reason] : " + EntityUtils.toString(response.getEntity(), "UTF-8"));
         }
 	}
 }

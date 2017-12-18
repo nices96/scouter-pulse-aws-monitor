@@ -105,7 +105,7 @@ public class GetStatisticsTask implements Runnable {
 					if (namespace.endsWith("EC2")) {
 						model.getObject().setHost("AWS/EC2");
 				    } else {
-				    	model.getObject().setHost("AWS/RDS");
+				    		model.getObject().setHost("AWS/RDS");
 				    }
 					
 					model.getObject().setName(pulse.getName());
@@ -201,11 +201,11 @@ public class GetStatisticsTask implements Runnable {
 	    String ns = null;
 		String metric = null;
 	    if (namespace.endsWith("EC2")) {
-	    	ns = "System/Linux";
+	    		ns = "System/Linux";
 		    instanceDimension.setName("InstanceId");
 		    metric = "MemoryUtilization";
 	    } else {
-	    	ns = namespace;
+	    		ns = namespace;
 		    instanceDimension.setName("DBInstanceIdentifier");
 		    metric = "FreeableMemory";
 	    }
@@ -244,10 +244,10 @@ public class GetStatisticsTask implements Runnable {
 	    
 	    String ns = null;
 	    if (pulse.getType().equals("application")) {
-	    	ns = "AWS/ApplicationELB";
+	    		ns = "AWS/ApplicationELB";
 		    instanceDimension.setName("LoadBalancer");
 	    } else {
-	    	ns = "AWS/ELB";
+	    		ns = "AWS/ELB";
 		    instanceDimension.setName("LoadBalancerName");
 	    }
 	    
@@ -306,12 +306,12 @@ public class GetStatisticsTask implements Runnable {
         HttpResponse response = client.execute(post);
         
         if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK || response.getStatusLine().getStatusCode() == HttpStatus.SC_CREATED) {
-        	logger.debug("Counter message sent to [{}] successfully.", url);
+        		logger.debug("Counter message sent to [{}] successfully.", url);
         } else {
-        	logger.warn("Counter message sent failed. Verify below information.");
-        	logger.warn("[URL] : " + url);
-        	logger.warn("[Message] : " + param);
-        	logger.warn("[Reason] : " + EntityUtils.toString(response.getEntity(), "UTF-8"));
+	        	logger.warn("Counter message sent failed. Verify below information.");
+	        	logger.warn("[URL] : " + url);
+	        	logger.warn("[Message] : " + param);
+	        	logger.warn("[Reason] : " + EntityUtils.toString(response.getEntity(), "UTF-8"));
         }
 	}
 
